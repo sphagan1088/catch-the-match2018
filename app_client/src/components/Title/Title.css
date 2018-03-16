@@ -1,0 +1,10 @@
+.display-4 {
+    color: white;
+    font-size: 60pt;
+    text-shadow: 2px 2px black;
+    font-family: "Alfa Slab One", cursive; 
+}
+
+.jumbotron {
+    background: rgba(134, 130, 130, 0.5); 
+}
