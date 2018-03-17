@@ -9,6 +9,14 @@ import Footer from "./components/Footer/Footer.js";
 
 
 class App extends Component {
+  constructor(){
+    state = {
+      data: []
+    }
+  }
+  componentDidMount(){
+
+  }
   render() {
     return (
       <div className = "App">
