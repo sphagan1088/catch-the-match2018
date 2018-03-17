@@ -7,7 +7,7 @@ class Title extends Component {
         return (
             <div className="jumbotron jumbotron-fluid">
             <div className="container">
-              <h1 className="display-4">Catch the Match</h1>
+              <h1 className="display-4 ">Catch the Match</h1>
             </div>
           </div>
         )

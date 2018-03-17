@@ -4,6 +4,7 @@ import Nav from "./components/Nav/Nav.js";
 import Title from "./components/Title/Title.js";
 import Header from "./components/Header/Header.js";
 import AddLeague from "./components/AddLeague/AddLeague.js";
+import Cards from "./components/Cards/Cards.js";
 import Footer from "./components/Footer/Footer.js";
 
 
@@ -15,6 +16,7 @@ class App extends Component {
         <Title />
         <Header />
         <AddLeague />
+        <Cards />
         <Footer />
       </div>
     );
