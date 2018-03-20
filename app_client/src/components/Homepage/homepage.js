@@ -3,12 +3,14 @@ import Nav from "../Nav/Nav.js";
 import Title from "../Title/Title.js";
 import Footer from "../Footer/Footer.js";
 import "./homepage.css"
+import MyForm from './forms.js';
 
 class Home extends Component {
     render() {
         return (
             <div className="App Site">
                 <div className="Site-content">
+
                 <Nav />
                 <Title />
                 <div className="sign-in">
@@ -24,17 +26,16 @@ class Home extends Component {
                             <div className="modal-dialog" role="document">
                                 <div className="modal-content">
                                     <div className="modal-header">
-                                        <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <h5 className="modal-title" id="exampleModalLabel">SIGN INTO GREATNESS!</h5>
                                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div className="modal-body">
-                                        ...
+                                        <MyForm />
                                     </div>
                                     <div className="modal-footer">
                                         <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" className="btn btn-primary">Save changes</button>
                                     </div>
                                 </div>
                             </div>
@@ -42,9 +43,8 @@ class Home extends Component {
                     </div>
                 </div>
                 <Footer />
-                </div>
             </div>
-
+        </div>
         )
     }
 }
