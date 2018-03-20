@@ -8,6 +8,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('./app_client/build'));
+app.use("api", app)
+
 models.sequelize.sync({force: true})
 .then(() => {
     app.listen(PORT, () => {

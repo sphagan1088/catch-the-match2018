@@ -4,11 +4,13 @@ import './Footer.css';
 class Footer extends Component {
     render() {
         return(
+            <main>
             <div>
-                <footer className="footer">
+                <footer class="position-sticky" className="footer">
                 &copy; Copyright 2018 Flailing Arms
                 </footer>
             </div>
+            </main>
         )
     }
 }
