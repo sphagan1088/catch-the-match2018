@@ -17,9 +17,12 @@
   },
   "homepage": "https://github.com/sphagan1088/catch-the-match2018#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
     "mysql2": "^1.5.2",
-    "sequelize": "^4.36.1"
+    "react-moment": "^0.7.0",
+    "react-router-dom": "^4.2.2",
+    "sequelize": "^4.37.1"
   }
 }
