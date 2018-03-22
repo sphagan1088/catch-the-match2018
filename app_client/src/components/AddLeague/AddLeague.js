@@ -6,7 +6,11 @@ class AddLeague extends Component {
         return(
             <div>
                 <button type="button" className="btn btn-primary btn-lg">Add Your Leagues / Teams</button>
+               
             </div>
+
+
+
         )
     }
     

@@ -11,7 +11,7 @@ const Cards = (props) => {
                     <div className="card-body">
                     <h5 className="card-header">{props.teamName}</h5>
                     <p className="card-text">Standings: </p>
-                    <p className="card-text">Network: {props.</p>
+                    <p className="card-text">Network: {props.network}</p>
                     <p className="card-text">Last 2 games:</p>
                     <p className="card-text">Upcoming games:</p>
                     </div>
