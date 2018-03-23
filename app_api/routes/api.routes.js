@@ -16,7 +16,17 @@ module.exports = function(app) {
       res.json(results);
     });
   });
-
+  app.post("api/login", function(req, res) {
+      User.find({where: {
+        email: req.body.email
+      }})
+      .then(function(resp) {
+        res.json(resp);
+      })
+      .catch(function(err) {
+        throw err;
+      })
+  })
   // Get a specific users team
   app.get('/api/my-sports/:team', function(req, res) {
     var seanArray = [];
