@@ -1,66 +1,53 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from "axios";
 
-const inputParsers = {
-  date(input) {
-    const [month, day, year] = input.split('/');
-    return `${year}-${month}-${day}`;
-  },
-  uppercase(input) {
-    return input.toUpperCase();
-  },
-  number(input) {
-    return parseFloat(input);
-  },
-};
-
-class MyForm extends React.Component {
-  constructor() {
-    super();
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    const form = event.target;
-    const data = new FormData(form);
-
-    for (let name of data.keys()) {
-      const input = form.elements[name];
-      const parserName = input.dataset.parse;
-
-      if (parserName) {
-        const parser = inputParsers[parserName];
-        const parsedValue = parser(data.get(name));
-        data.set(name, parsedValue);
-      }
+class MyForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: "",
+            password: ""
+        }
+        this.submit = this.submit.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
-    
-    fetch('/api/form-submit-url', {
-      method: 'POST',
-      body: data,
-    });
-  }
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
 
-  render() {
-    return (
-        <form>
-        <div className="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
-          <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div className="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
-        </div>
-        <div className="form-check">
-          <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-          <label className="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <br/>
-        <button type="submit" className="btn btn-primary">Submit</button>
-      </form>
-    );
-  }
+        this.setState({
+            [name]: value
+        });
+    }
+    submit(e) {
+        e.preventDefault();
+        axios.post("/api/login", this.state)
+        .then(resp => {
+            console.log(resp);
+            window.localStorage.setItem("id", resp.data.id)
+            this.props.history.push("/");
+        })
+        .catch(err => {
+            console.error(err);
+        })
+    }
+    render() {
+        return (
+            <div>
+                <form>
+                    <div className="form-group">
+                        <label>Email</label>
+                        <input className = "form-control" type="email" name="email" onChange={this.handleInputChange}/>
+                    </div>
+                    <div className="form-group">
+                        <label>Password</label>
+                        <input className = "form-control" type="password" name="password" onChange={this.handleInputChange}/>
+                    </div>
+                    <button className = "btn btn-primary" onClick={this.submit}>Submit</button>
+                </form>
+            </div>
+        );
+    }
 }
 export default MyForm;

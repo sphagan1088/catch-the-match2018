@@ -22,10 +22,10 @@ class Login extends Component {
     }
     submit(e) {
         e.preventDefault();
-        axios.post("/auth/login", this.state)
+        axios.post("/api/login", this.state)
         .then(resp => {
             console.log(resp);
-            window.localStorage.setItem("token", resp.data.token)
+            window.localStorage.setItem("userID", resp.data.id)
             this.props.history.push("/");
         })
         .catch(err => {
